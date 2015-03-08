@@ -27,11 +27,40 @@ public class ApplicationTest {
    * Tests that the Index template renders correctly.
    */
   @Test
-  public void renderTemplate() {
+  public void renderIndexTemplate() {
     Content html = views.html.Index.render("A history of browsers");
     assertThat(contentType(html)).isEqualTo("text/html");
     assertThat(contentAsString(html)).contains("A history of browsers");
   }
 
+  /**
+   * Tests that the Firefox template renders correctly.
+   */
+  @Test
+  public void renderFirefoxTemplate() {
+    Content html = views.html.Firefox.render("A brief history of Mozilla Firefox");
+    assertThat(contentType(html)).isEqualTo("text/html");
+    assertThat(contentAsString(html)).contains("A brief history of Firefox");
+  }
+
+  /**
+   * Tests that the Internet Explorer template renders correctly.
+   */
+  @Test
+  public void renderIETemplate() {
+    Content html = views.html.IE.render("A brief history of Internet Explorer");
+    assertThat(contentType(html)).isEqualTo("text/html");
+    assertThat(contentAsString(html)).contains("A brief history of IE");
+  }
+
+  /**
+   * Tests that the Chrome template renders correctly.
+   */
+  @Test
+  public void renderChromeTemplate() {
+    Content html = views.html.Chrome.render("A brief history of Google Chrome");
+    assertThat(contentType(html)).isEqualTo("text/html");
+    assertThat(contentAsString(html)).contains("A brief history of Chrome");
+  }
 
 }

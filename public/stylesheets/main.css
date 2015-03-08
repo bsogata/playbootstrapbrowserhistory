@@ -11,3 +11,8 @@ img {
   margin-right: auto;
   width: 100px;
 }
+
+.browser-image {
+  float: left;
+  padding: 16px;
+}

@@ -17,7 +17,7 @@ import static play.test.Helpers.testServer;
 public class IntegrationTest {
 
   /**
-   * Check to see that both the index and page1 pages can be retrieved.
+   * Check to see that all pages can be retrieved.
    */
   @Test
   public void test() {
@@ -25,6 +25,15 @@ public class IntegrationTest {
       public void invoke(TestBrowser browser) {
         browser.goTo("http://localhost:3333");
         assertThat(browser.pageSource()).contains("A history of browsers");
+
+        browser.goTo("http://localhost:3333/firefox");
+        assertThat(browser.pageSource()).contains("A brief history of Firefox");
+
+        browser.goTo("http://localhost:3333/ie");
+        assertThat(browser.pageSource()).contains("A brief history of IE");
+
+        browser.goTo("http://localhost:3333/chrome");
+        assertThat(browser.pageSource()).contains("A brief history of Chrome");
 
       }
     });
